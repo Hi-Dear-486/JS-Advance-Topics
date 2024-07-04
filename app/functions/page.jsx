@@ -7,8 +7,8 @@ const Functions = () => {
   }
   Student();
   //   example of Anonumous function
-  // call back function is similar with anonumous function
-  const student2 = function anonumousfun(one, two) {
+  //   wo function jis ka koi name na ho that is called anonumous function
+  const student2 = (one, two) => {
     return one + two;
   };
   student2(2, 3);
