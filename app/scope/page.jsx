@@ -1,5 +1,3 @@
-import React from "react";
-
 const Scope = () => {
   // example of global scope
   var globalscope = "globalscopedefine";
