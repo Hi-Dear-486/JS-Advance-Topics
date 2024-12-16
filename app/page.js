@@ -1,5 +1,5 @@
 const Home = () => {
-  return <div>tailwind css</div>;
+  return <div>javascript imp topics</div>;
 };
 
 export default Home;

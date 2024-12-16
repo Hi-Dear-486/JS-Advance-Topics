@@ -20,7 +20,10 @@ function getData() {
 
 getData()
   .then((result) => {
-    console.log(result);
+    return result;
+  })
+  .then((chaining) => {
+    console.log(chaining);
   })
   .catch((err) => {
     console.log(err);
