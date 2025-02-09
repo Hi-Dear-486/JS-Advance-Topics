@@ -1,5 +1,7 @@
-// iterables:  On which we can apply  loop
-// Array
+// iterables:  On which we can apply  for of loop
+// ✅Array
+// ✅String
+
 // array are the most common example of iterables
 
 const arr = [1, 2, 3];
@@ -8,22 +10,32 @@ for (const elem of arr) {
   console.log("🚀 ~ elem:", elem);
 }
 
-// using spread operator
-const arr2 = [...arr];
-
-// Strings are iterables, and you can loop over each character
+// ✅Strings are iterables, and you can apply  for of loop over each character
 const name = "Zeeshan";
 
 for (const elem of name) {
   console.log("🚀 ~ elem:", elem);
 }
 
-const name2 = [...name];
-console.log("🚀 ~ name2:", name2);
+// Arguments Object
+// In legacy code
+// ✅The arguments object is iterable in non-arrow functions:
+function demo() {
+  for (const elem of arguments) {
+    console.log("🚀 ~ demo ~ elem:", elem);
+  }
+}
+demo(1, 2, 3, 4, 5);
+
+// Recommended
+// In Modern JavaScript ...args (rest parameters)  🚀
+const test = (...args) => {
+  console.log(args);
+};
+test(1, 2, 3);
 
 // Sets
-// Sets are iterables that store unique values:
-
+// ✅Sets are iterables that store unique values:
 const mySet = new Set([1, 2, 3, 3]); // Duplicate 3 is ignored
 
 // Using for...of
@@ -31,11 +43,12 @@ for (const value of mySet) {
   console.log(value);
 }
 
-// Arguments Object
-// The arguments object is iterable in non-arrow functions:
-function demo() {
-  for (const elem of arguments) {
-    console.log("🚀 ~ demo ~ elem:", elem);
-  }
-}
-demo(1, 2, 3, 4, 5);
+// Map
+// ✅its useful for Large datasets or dynamic keys.
+const sessionData = new Map();
+sessionData.set(123, { name: "ismail", age: 23 });
+console.log(sessionData.get(123));
+
+// 🔹 When to Use Set & Map?
+// ✅ Use Set when you need a list of unique values.
+// ✅ Use Map when you need key-value pairs with fast lookup
