@@ -1,52 +1,56 @@
 const Scope = () => {
-  // example of global scope
-  var globalscope = "globalscopedefine";
-  const GlobalScope = () => {
-    // access global variable
-    console.log(globalscope);
-  };
-  GlobalScope();
+  // 1️⃣ Global Scope
+  // 📌 Note: Too many global variables can cause conflicts and make debugging difficult.
+  let globalVar = "I am global";
 
-  // example of local scope
-  const LocalScope = () => {
-    // local variable
-    let local = "localscopedefine";
-    console.log(local);
-  };
-  LocalScope();
+  function showGlobal() {
+    console.log(globalVar); // ✅ Accessible
+  }
+  showGlobal();
+  console.log(globalVar); // ✅ Accessible
 
-  // example of block scope
-  const blockScope = () => {
-    // block scope variables
-    const block = "block scope define";
-    console.log(block);
-  };
-  blockScope();
+  // 2️⃣ Function Scope (Local Scope)
+  // 📌 Note: Function-scoped variables exist only while the function is running.
+  function localScopeExample() {
+    let localVar = "I am local";
+    console.log(localVar); // ✅ Accessible inside function
+  }
+  localScopeExample();
+  // console.log(localVar); // ❌ Error: localVar is not defined
+
+  // 3️⃣ Block Scope (ES6: let & const)
+  if (true) {
+    let blockVar = "I am block-scoped";
+    console.log(blockVar); // ✅ Accessible inside block
+  }
+
+  console.log(blockVar); // ❌ Error: blockVar is not defined
+
+  // 4️⃣ Lexical Scope (Scope Chain)
+  // 📌 Note: The inner function can access the outer function’s variables, but not vice versa.
+  function outerFunction() {
+    let outerVar = "I am outer";
+
+    function innerFunction() {
+      console.log(outerVar); // ✅ Accessible due to lexical scope
+    }
+
+    innerFunction();
+  }
+  outerFunction();
+
+  // 5️⃣ Module Scope (ES6 Modules)
+  // 📌 Note: This helps in keeping code modular and maintainable.
+  // file: myModule.js
+  // export let moduleVar = "I am module-scoped";
+
+  // file: main.js
+  // import { moduleVar } from './myModule.js';
+  // console.log(moduleVar); // ✅ Accessible after import
+
   return (
     <div>
-      <h2>Scope in js </h2>
-      <p>
-        JavaScript mein "scope" ek concept hai jo define karta hai ki kisi
-        variable ya function ko kahaan se access kiya ja sakta hai.
-      </p>
-      <h2>Types of Scopes</h2>
-      <li>
-        Global Scope: is mein variables ko function ky bhir define kiya jata hy
-        or hum usko hr jaga access kr sekhty hein
-      </li>
-      {/* example of  Global Scope */}
-      {}
-      <li>
-        Local Scope: is mein variables ko function ky inside mein define kiya
-        jata hy but hum is ko bhir access nahi kr sekhty
-      </li>
-      {/*example of Local scope */}
-      {}
-
-      <li>
-        Block Scope:ES6 ke let ya const se define kiye gaye variables block
-        scope mein hote hain, jaise if, for, while statements ke blocks mein.
-      </li>
+      <h2> Types of Scope in JavaScript </h2>
     </div>
   );
 };
