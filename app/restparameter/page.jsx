@@ -1,12 +1,9 @@
 import React from "react";
 
 // Rest Parameter
-// Yahan ...args ek rest parameter hai, jo function ke arguments ko ek array mein collect karta hai. Iska matlab hai ki function ko kitne bhi arguments pass kiye jaa sakte hain, aur wo sabhi args array ke roop mein available hote hain.
-// Note:
-// Kuch important points rest parameters ke baare mein:
-// Rest parameter ...args ko function ke parameters list ke end mein hi define kiya ja sakta hai.
-// Ek function mein sirf ek rest parameter ho sakta hai.
-// Rest parameter ka naam (args yahan) arbitrary hai, lekin conventionally iska naam ...args ya ...rest rakha jata hai.
+// 👉 Rest parameter is used when we need to handle any number of arguments without defining separate parameters.
+// 👉 It converts the arguments into an array.
+// 👉 It can be used anywhere, such as in functions, array destructuring, etc.
 function Restparameter(...rest) {
   rest.map((values) => {
     const { name, age } = values;
