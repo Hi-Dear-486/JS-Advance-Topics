@@ -1,25 +1,28 @@
 "use client";
 
 /* Synchronous Programming: */
-/* Synchronous programming mein code ek sequence mein execute hota hai, yani ek line execute hone ke baad hi agla line execute hota hai. */
-/* Synchronous programming ka ek example ye hai: */
+/* In synchronous programming, code executes in a sequence, meaning the next line executes only after the previous line has finished. */
+/* Here is an example of synchronous programming: */
 
 console.log("start");
 function Synchronousprograming() {
-  console.log("aik line execute honay ky baad hi second line execute ho gi");
+  console.log(
+    "A second line will execute only after the first line has executed."
+  );
 }
 Synchronousprograming();
 console.log("end");
 
 // Asynchronous programming
-// Asynchronous programming mein ek task ko shuru karne ke baad, program us task ka wait nahi karta hai. Iska matlab hai ki dusre tasks ko continue kiya ja sakta hai bina current task ke completion ka wait kiye.
-// JavaScript mein asynchronous programming commonly network requests, file operations, timers, event handling, etc. ke liye use hota hai.
+// In asynchronous programming, after starting a task, the program does not wait for it to complete.
+// This means other tasks can continue without waiting for the current task to finish.
+// In JavaScript, asynchronous programming is commonly used for network requests, file operations, timers, event handling, etc.
 
-// Asynchronous programming ki example
+// Here is an example of Asynchronous programming
 
 console.log("start");
 setTimeout(() => {
-  console.log("Asynchronous programming wait nahi krta ");
+  console.log("Asynchronous programming does not wait  ");
 }, 2000);
 
 console.log("end");
